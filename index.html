@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Aqsa ✦ A Friendship Celebration</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Poppins:wght@300;400;600&display=swap">
+<style>
+:root{--bg:#0a0a0c;--card:#15151a;--ink:#f4efe8;--mute:#b3aca1;--gold:#e8c27a;--rose:#e58fa6;--line:#2a2a31;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0a0a0c;--card:#15151a;--ink:#f4efe8}}
+:root[data-theme="dark"]{--bg:#0a0a0c}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600}
+@media (pointer:fine){html,body,a,button,input,.flip,.jar{cursor:none}}
+#dot,#ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);display:none}
+#dot{width:8px;height:8px;background:var(--gold)}
+#ring{width:34px;height:34px;border:1.5px solid var(--rose);transition:width .2s,height .2s,background .2s}
+#ring.big{width:60px;height:60px;background:rgba(232,194,122,.12)}
+@media (pointer:fine){#dot,#ring{display:block}}
+.spark{position:fixed;pointer-events:none;z-index:9998;color:var(--gold);font-size:14px;animation:fade .9s forwards}
+@keyframes fade{to{opacity:0;transform:translateY(-26px) scale(.3) rotate(120deg)}}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+main,#gate{position:relative;z-index:1}
+#gate{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 30%,#1c1620,#0a0a0c 70%);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .8s,visibility .8s}
+#gate.gone{opacity:0;visibility:hidden}
+.box{max-width:380px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 26px;box-shadow:0 0 60px rgba(229,143,166,.12)}
+.box h1{font-size:1.9rem;margin:8px 0}
+.box p{color:var(--mute);font-size:.9rem}
+.box input{width:100%;margin:18px 0 10px;padding:13px 16px;border-radius:999px;border:1px solid var(--line);background:#0e0e12;color:var(--ink);font:inherit;text-align:center;outline:none}
+.box input:focus{border-color:var(--gold)}
+.btn{display:inline-block;border:0;border-radius:999px;padding:12px 28px;font:600 .95rem Poppins,sans-serif;color:#111;background:linear-gradient(135deg,var(--gold),var(--rose));transition:transform .2s}
+.btn:hover{transform:translateY(-2px) scale(1.03)}
+#err{color:var(--rose);min-height:1.4em;font-size:.85rem}
+.shake{animation:sh .4s}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+section{padding:90px 22px;max-width:1000px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero small{letter-spacing:.35em;color:var(--gold);text-transform:uppercase;font-size:.75rem}
+.hero h1{font-size:clamp(2.8rem,10vw,6rem);line-height:1.1;margin:14px 0;background:linear-gradient(120deg,var(--ink),var(--gold),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
+#type{min-height:2em;color:var(--mute);font-size:1.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+.chip{border:1px solid var(--line);background:var(--card);padding:7px 16px;border-radius:999px;font-size:.85rem}
+.chip b{color:var(--gold);font-weight:600}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);text-align:center;margin-bottom:8px}
+.sub{text-align:center;color:var(--mute);margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.flip{height:180px;perspective:900px}
+.flip div{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
+.flip.on div{transform:rotateY(180deg)}
+.flip span{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center;font-size:.9rem;color:var(--mute)}
+.flip span:first-child{font:600 1.25rem "Playfair Display",serif;color:var(--ink)}
+.flip span:first-child i{font-size:2rem;font-style:normal;margin-bottom:6px}
+.flip span:last-child{transform:rotateY(180deg);background:linear-gradient(160deg,#1d1722,#15151a);border-color:var(--rose)}
+.recipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.panel h3{margin-bottom:12px;color:var(--gold)}
+.ing{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line);user-select:none}
+.ing:last-of-type{border:0}
+.ing .tick{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;font-size:.75rem;color:transparent;flex:none}
+.ing.done .tick{background:var(--gold);color:#111}
+.ing.done{color:var(--mute);text-decoration:line-through}
+#prog{height:8px;border-radius:99px;background:#0e0e12;margin-top:14px;overflow:hidden}
+#prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--rose));transition:width .5s}
+#serve{margin-top:12px;color:var(--rose);min-height:1.5em;font-size:.9rem}
+.jarwrap{text-align:center}
+.jar{font-size:5rem;display:inline-block;transition:transform .3s;filter:drop-shadow(0 0 22px rgba(232,194,122,.4))}
+.jar:hover{transform:rotate(-8deg) scale(1.08)}
+#wish{max-width:520px;margin:20px auto 0;min-height:90px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;font:italic 1.15rem "Playfair Display",serif;display:flex;align-items:center;justify-content:center}
+.quiz .q{font-size:1.1rem;margin-bottom:16px;text-align:center}
+.opts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.opt{background:#0e0e12;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:10px 20px;font:inherit;transition:.2s}
+.opt:hover{border-color:var(--gold)}
+.opt.ok{background:var(--gold);color:#111;border-color:var(--gold)}
+.opt.no{border-color:var(--rose);opacity:.5}
+#qres{text-align:center;margin-top:14px;color:var(--gold);min-height:1.6em}
+.final{text-align:center}
+.final p{max-width:620px;margin:0 auto 14px;color:var(--mute);font-size:1.02rem}
+.final .big{font:italic 1.6rem "Playfair Display",serif;color:var(--ink);margin:26px 0}
+canvas#fx{position:fixed;inset:0;z-index:60;pointer-events:none}
+footer{text-align:center;padding:40px 20px 60px;color:var(--mute);font-size:.85rem}
+.rv{opacity:0;transform:translateY(30px);transition:1s}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="dot"></div><div id="ring"></div>
+<canvas id="bg"></canvas><canvas id="fx"></canvas>
+
+<div id="gate">
+  <div class="box" id="box">
+    <div style="font-size:2.2rem">🖤</div>
+    <h1>For Aqsa</h1>
+    <p>A little surprise made with care.<br>Enter the secret word to open it.</p>
+    <input id="pw" type="password" placeholder="Secret password" autocomplete="off" aria-label="Password">
+    <div id="err"></div>
+    <button class="btn" id="go">Unlock ✦</button>
+    <p style="margin-top:16px;font-size:.78rem">Hint: her name + her age</p>
+  </div>
+</div>
+
+<main>
+<section class="hero">
+  <small>A friendship celebration</small>
+  <h1>Aqsa</h1>
+  <div id="type"></div>
+  <div class="chips">
+    <span class="chip">🎂 <b>26</b> years young</span>
+    <span class="chip">🍎 Teacher at <b>SLS</b></span>
+    <span class="chip">📏 <b>5′2″</b> of pure brilliance</span>
+    <span class="chip">🖤 Favorite color: <b>Black</b></span>
+    <span class="chip">🍳 Loves <b>cooking</b></span>
+  </div>
+  <button class="btn" style="margin-top:32px" id="conf1">Let’s celebrate 🎉</button>
+</section>
+
+<section class="rv">
+  <h2>Why this friendship is special</h2>
+  <p class="sub">Tap a card to flip it.</p>
+  <div class="grid">
+    <div class="flip"><div><span><i>👀</i>Hopeful Eyes</span><span>Your eyes are bright and full of hope, and that kind of light makes people around you feel it too.</span></div></div>
+    <div class="flip"><div><span><i>🧠</i>Smart</span><span>You think things through and bring real insight to every conversation. It’s a pleasure to talk with you.</span></div></div>
+    <div class="flip"><div><span><i>💬</i>Easy to Talk To</span><span>Talking with you never feels forced. Conversations just flow, and that’s a rare gift.</span></div></div>
+    <div class="flip"><div><span><i>📚</i>A Teacher’s Heart</span><span>Shaping young minds at SLS takes patience and care. Your students are lucky to have you.</span></div></div>
+    <div class="flip"><div><span><i>🌸</i>Kind &amp; Warm</span><span>You make new friends feel welcome from the very first hello. Thank you for that.</span></div></div>
+    <div class="flip"><div><span><i>🖤</i>Style in Black</span><span>Black suits you: classic, confident and elegant, just like you.</span></div></div>
+  </div>
+</section>
+
+<section class="rv">
+  <h2>The Recipe for Our Friendship</h2>
+  <p class="sub">Since you love cooking, here’s a recipe. Tap each ingredient to add it to the pot.</p>
+  <div class="recipe">
+    <div class="panel">
+      <h3>🍳 Ingredients</h3>
+      <div class="ing"><span class="tick">✓</span>2 cups of honest conversation</div>
+      <div class="ing"><span class="tick">✓</span>1 big spoon of shared laughter</div>
+      <div class="ing"><span class="tick">✓</span>A pinch of good humor</div>
+      <div class="ing"><span class="tick">✓</span>3 drops of kindness</div>
+      <div class="ing"><span class="tick">✓</span>A handful of hope (your specialty)</div>
+      <div class="ing"><span class="tick">✓</span>Endless trust, slow-cooked</div>
+      <div id="prog"><i></i></div>
+      <div id="serve"></div>
+    </div>
+    <div class="panel">
+      <h3>👩‍🍳 Method</h3>
+      <p style="color:var(--mute)">Mix everything gently, never rush it, and taste often. Serve with chai, long chats and plenty of smiles. This recipe gets better with time, and it serves a lifetime of good memories.</p>
+      <p style="margin-top:14px;color:var(--mute)">Chef’s note: the secret ingredient was always <b style="color:var(--gold)">you</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rv jarwrap">
+  <h2>The Wish Jar</h2>
+  <p class="sub">Tap the jar for a wish just for you.</p>
+  <div class="jar" id="jar" role="button" tabindex="0" aria-label="Open wish jar">🫙</div>
+  <div id="wish">Tap the jar ✨</div>
+</section>
+
+<section class="rv quiz">
+  <h2>Mini Quiz</h2>
+  <p class="sub">How well do I know my new friend?</p>
+  <div class="panel">
+    <div class="q" id="qq"></div>
+    <div class="opts" id="qo"></div>
+    <div id="qres"></div>
+  </div>
+</section>
+
+<section class="rv final">
+  <h2>A Note for You</h2>
+  <p class="sub">From a grateful friend</p>
+  <p>Dear Aqsa, meeting you has been a genuine pleasure. You’re smart, kind and easy to talk to, and you carry a hopeful light that makes any conversation better.</p>
+  <p>Thank you for being such a warm new friend. I hope this friendship grows stronger, and that your classroom, your kitchen and your life stay full of joy.</p>
+  <div class="big">Here’s to many more chats, laughs and good meals. 🖤</div>
+  <button class="btn" id="conf2">Celebrate again 🎊</button>
+</section>
+<footer>Made with care for Aqsa ✦ Friends make life brighter</footer>
+</main>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+/* password (client-side) */
+var KEY="aqsa26";
+function unlock(){
+  var v=$("#pw").value.trim().toLowerCase();
+  if(v===KEY){$("#gate").classList.add("gone");document.body.style.overflow="";burst(innerWidth/2,innerHeight/2,120);typer();}
+  else{$("#err").textContent="Hmm, not quite. Try again 🙂";var b=$("#box");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake");}
+}
+$("#go").onclick=unlock;
+$("#pw").addEventListener("keydown",function(e){if(e.key==="Enter")unlock()});
+document.body.style.overflow="hidden";
+/* cursor */
+var dot=$("#dot"),ring=$("#ring"),mx=0,my=0,rx=0,ry=0,last=0;
+addEventListener("mousemove",function(e){
+  mx=e.clientX;my=e.clientY;dot.style.left=mx+"px";dot.style.top=my+"px";
+  var n=Date.now();if(n-last>60){last=n;var s=document.createElement("div");s.className="spark";s.textContent=["✦","✧","♡","·"][Math.random()*4|0];s.style.left=mx+"px";s.style.top=my+"px";document.body.appendChild(s);setTimeout(function(){s.remove()},900);}
+});
+(function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(loop)})();
+document.addEventListener("mouseover",function(e){ring.classList.toggle("big",!!e.target.closest("button,input,.flip,.jar,.ing,.opt"))});
+/* starfield */
+var bg=$("#bg"),bc=bg.getContext("2d"),stars=[];
+function rs(){bg.width=innerWidth;bg.height=innerHeight}rs();addEventListener("resize",rs);
+for(var i=0;i<70;i++)stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.3,p:Math.random()*6,c:Math.random()>.5?"232,194,122":"229,143,166"});
+(function draw(t){bc.clearRect(0,0,bg.width,bg.height);stars.forEach(function(s){var a=.25+.45*Math.abs(Math.sin(t/1500+s.p));bc.fillStyle="rgba("+s.c+","+a+")";bc.beginPath();bc.arc(s.x*bg.width,s.y*bg.height,s.r,0,7);bc.fill();s.y-=.00007;if(s.y<0)s.y=1});requestAnimationFrame(draw)})(0);
+/* confetti */
+var fx=$("#fx"),fc=fx.getContext("2d"),parts=[],run=false;
+function fr(){fx.width=innerWidth;fx.height=innerHeight}fr();addEventListener("resize",fr);
+function burst(x,y,n){for(var i=0;i<n;i++){var a=Math.random()*6.28,v=Math.random()*9+3;parts.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,s:Math.random()*7+4,c:["#e8c27a","#e58fa6","#f4efe8","#9a7bd1"][Math.random()*4|0],l:100+Math.random()*60,r:Math.random()*6})}if(!run){run=true;tick()}}
+function tick(){fc.clearRect(0,0,fx.width,fx.height);parts=parts.filter(function(p){return p.l>0});parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.99;p.l--;p.r+=.2;fc.globalAlpha=Math.min(1,p.l/40);fc.fillStyle=p.c;fc.save();fc.translate(p.x,p.y);fc.rotate(p.r);fc.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);fc.restore()});fc.globalAlpha=1;if(parts.length)requestAnimationFrame(tick);else run=false}
+function party(){burst(innerWidth*.25,innerHeight*.6,70);burst(innerWidth*.75,innerHeight*.6,70);burst(innerWidth/2,innerHeight*.4,80)}
+$("#conf1").onclick=party;$("#conf2").onclick=party;
+/* typewriter */
+var lines=["Teacher. Cook. Bright soul.","A new friend worth celebrating.","Smart, kind and easy to talk to."],li=0,ci=0,del=false,started=false;
+function typer(){if(started)return;started=true;(function step(){var t=lines[li];ci+=del?-1:1;$("#type").textContent=t.slice(0,ci)+"▏";if(!del&&ci===t.length){del=true;return setTimeout(step,1600)}if(del&&ci===0){del=false;li=(li+1)%lines.length}setTimeout(step,del?30:70)})()}
+/* flip cards */
+$$(".flip").forEach(function(f){f.onclick=function(){f.classList.toggle("on")}});
+/* recipe */
+var ings=$$(".ing"),msgs=["Mmm, getting started…","Smells wonderful already!","The flavors are coming together.","Almost there, keep stirring!","So close to perfect…","Perfectly cooked! Served with love 🍲"];
+ings.forEach(function(el){el.onclick=function(){el.classList.toggle("done");var d=$$(".ing.done").length;$("#prog i").style.width=(d/ings.length*100)+"%";$("#serve").textContent=d?msgs[d-1]:"";if(d===ings.length)party()}});
+/* wishes */
+var wishes=["May your classroom always be full of curious minds. 📚","May every dish you cook turn out perfect. 🍳","May your hopeful eyes always see good days ahead. ✨","May you always have people who value your kindness. 🌸","May this year bring you peace, laughter and success. 🖤","May your students remember you as their favorite teacher. 🍎","May life give you everything you quietly wish for. 🌙"],wi=-1;
+function wish(){var n;do{n=Math.random()*wishes.length|0}while(n===wi);wi=n;$("#wish").textContent=wishes[n];var r=$("#jar").getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,30)}
+$("#jar").onclick=wish;$("#jar").onkeydown=function(e){if(e.key==="Enter"||e.key===" ")wish()};
+/* quiz */
+var Q=[{q:"What’s Aqsa’s favorite color?",o:["Pink","Black","Blue","Green"],a:1},{q:"Where does Aqsa teach?",o:["SLS School","A bakery","A gym","A bank"],a:0},{q:"Which hobby does Aqsa love?",o:["Skydiving","Chess","Cooking","Painting"],a:2},{q:"How would you describe Aqsa’s eyes?",o:["Sleepy","Bright and full of hope","Mysterious","Serious"],a:1}],qi=0,sc=0;
+function showQ(){if(qi>=Q.length){$("#qq").textContent="Quiz complete!";$("#qo").innerHTML="";$("#qres").textContent="Score: "+sc+"/"+Q.length+(sc===Q.length?" 🏆 A true friend!":" 🌟 Good effort!");if(sc===Q.length)party();return}
+var c=Q[qi];$("#qq").textContent=c.q;$("#qo").innerHTML="";$("#qres").textContent="";c.o.forEach(function(t,i){var b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=function(){if(b.dataset.x)return;var all=$$(".opt");all.forEach(function(x){x.dataset.x=1});if(i===c.a){b.classList.add("ok");sc++;$("#qres").textContent="Correct! ✨"}else{b.classList.add("no");all[c.a].classList.add("ok");$("#qres").textContent="Nice try!"}setTimeout(function(){qi++;showQ()},1300)};$("#qo").appendChild(b)})}
+showQ();
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("in")})},{threshold:.12});
+$$(".rv").forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
